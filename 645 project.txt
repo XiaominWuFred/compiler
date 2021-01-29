@@ -1,0 +1,59 @@
+
+setenv PATH /afs/glue/class/old/enee/759c/llvm/llvm-3.4-install/opt/bin/:$PATH
+
+
+In /obj:
+setenv PATH /afs/glue/class/old/enee/759c/llvm/llvm-3.4-install/opt/bin/:$PATH
+
+opt --version
+
+make install
+
+opt -load ../opt/lib/libHello.so -hello /homes/xiaomwu/project645/demo2.bc -o demo2hello.bc
+
+llvm-dis example.1hello.bc -o IRafpass
+
+llvm-dis demo2hello.bc -o demo2outreadable
+
+clang -c -emit-llvm demo.c -o demo.bc
+
+error: invalid use of incomplete type 'struct llvm::Module'
+solution: add related include files
+
+
+llc -march=cpp < input bytecode > -o < output cpp file >
+
+
+-module.h function.h basicblock.h instruction.h helpful
+-.bc to .cpp and .bc to readable.bc helpful
+-- store back global
+-- change return to return void
+--delete store callback 
+--change to store global
+
+llc -filetype=obj my-file.bc
+gcc my-file.o -o my-file.exe
+
+
+//useful codes:
+ nano
+ chmod 755 hello_world
+
+---clone void type function
+---clone N callsites?
+
+--recompile pass:
+add pass file into demo645/sample/lib/Clonefunc
+add Makefile into demo645/sample/lib/Clonefunc
+ ~/xyz/obj$ ../sample/configure --with-llvmsrc=/afs/glue/class/old/enee/759c/llvm/llvm-3.4.src --with-llvmobj=/afs/glue/class/old/enee/759c/llvm/llvm-3.4-install/obj --prefix=/homes/xiaomwu/demo645/opt 
+
+$rethink 645 project:
+	How to start a programming project? 
+	-understand purpose
+	-get steps formulated
+	-get a very simple program run on the environment (get environment through)
+	-build on the simple program, test needed codes for each steps
+	-find methods each steps code, from project header files, online materials, examples, etc. (this project also use .bc .cpp convertion)
+	-write script to accelerate testing cycle
+	-testing, debuging, improving
+	-finish

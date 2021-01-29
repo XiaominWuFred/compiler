@@ -1,0 +1,6 @@
+cd ../../project645
+clang -c -emit-llvm demo2.c -o e.bc
+llvm-dis e.bc -o ereadable
+llc -march=cpp e.bc -o e.cpp
+cat ereadable
+cat e.cpp

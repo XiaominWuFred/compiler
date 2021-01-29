@@ -1,0 +1,12 @@
+opt --version
+make install
+cd ../../project645 
+ls 
+clang -c -emit-llvm demo2.c -o test.bc 
+llc -filetype=obj test.bc
+gcc test.o -o test.exe
+./test.exe
+rm -rf test.exe test.o
+cd ../demo645/obj 
+opt -load ../opt/lib/libHello.so -hello /homes/xiaomwu/project645/test.bc -o testhello.bc
+

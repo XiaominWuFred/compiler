@@ -1,0 +1,16 @@
+clean
+opt --version
+make install
+cd ../../project645 
+ls 
+clang -c -emit-llvm example4.c -o test.bc 
+llc -filetype=obj test.bc
+gcc test.o -o test.exe
+./test.exe
+cd ../demo645/obj 
+opt -load ../opt/lib/libClonefunc.so -Clonefunc /homes/xiaomwu/project645/test.bc -o testhello.bc
+llc -filetype=obj testhello.bc
+gcc testhello.o -o testhello.exe
+./testhello.exe
+llvm-dis testhello.bc -o testreadable
+#cat testreadable

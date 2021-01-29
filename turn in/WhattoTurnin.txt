@@ -1,0 +1,7 @@
+ (i)                 The source code for your pass.
+
+(ii)               The output IR after running your pass on each of the examples in the llvm/test_codes directory.
+
+(iii)             Any modified Makefile you use to compile your pass. 
+
+(iiii)		readme file

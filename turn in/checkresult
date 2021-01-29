@@ -1,0 +1,2 @@
+llvm-dis testhello.bc -o testhelloreadable
+cat testhelloreadable
